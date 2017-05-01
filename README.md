@@ -5,7 +5,7 @@ Self-Driving Car Engineer Nanodegree Program
 
 ## Author: Saminda Abeyruwan
 
-I have used CMAES to search for the parameters that matches the rubric settings. The optimization has been complted at:
+I have used CMAES to search for the parameters that matches the rubric settings. The optimization has been completed at:
 
 RMSE: 0.0573002, 0.0936814, 0.338306,0.229795.
 
