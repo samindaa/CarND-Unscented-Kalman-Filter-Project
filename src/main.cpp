@@ -236,7 +236,8 @@ int main(int argc, char *argv[]) {
 
 
   ///// LETS make this an optimization problem with CMAES
-  if (false) {
+  const bool cmaesSearch = false;
+  if (cmaesSearch) {
     cmaes_t evo; /* an CMA-ES type struct or "object" */
     double *arFunvals, *const *pop, *xfinal;
     int i;
@@ -244,7 +245,7 @@ int main(int argc, char *argv[]) {
     std::vector<double> inxstart = {0.15, 0.5};
     std::vector<double> inrgstddev = {0.1, 0.1};
     VectorXd rubric_gt = VectorXd(4);
-    rubric_gt << .07, .08, .35, .25;
+    rubric_gt << .07, .08, .35, .25;  //<< "Find something close to Rubric
     VectorXd ukf_x_cartesian_cmaes = VectorXd(4);
 
 
