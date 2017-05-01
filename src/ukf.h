@@ -12,7 +12,7 @@ using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
 class UKF {
-public:
+ public:
 
   ///* initially set to false, set to true in first call of ProcessMeasurement
   bool is_initialized_;
@@ -54,7 +54,7 @@ public:
   double std_radphi_;
 
   ///* Radar measurement noise standard deviation radius change in m/s
-  double std_radrd_ ;
+  double std_radrd_;
 
   ///* Weights of sigma points
   VectorXd weights_;
@@ -108,6 +108,25 @@ public:
    * @param meas_package The measurement at k+1
    */
   void UpdateRadar(MeasurementPackage meas_package);
+
+ private:
+  /**
+   * Normalize angle between [-M_PI, M_PI]
+   * @param x angle to be normalized
+   * @return normalized angle
+   */
+  double AngleNorm(double x);
+
+  /**
+   * Update the state
+   * @param Zsig
+   * @param z_pred
+   * @param S
+   * @param z
+   * @return NIS
+   */
+  double UpdateState(const MatrixXd &Zsig, const VectorXd &z_pred, const MatrixXd &S, const VectorXd &z);
+
 };
 
 #endif /* UKF_H */
